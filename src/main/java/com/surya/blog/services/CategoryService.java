@@ -4,17 +4,38 @@ import java.util.List;
 
 import com.surya.blog.payloads.CategoryDto;
 
+/**
+ * @author surya
+ *
+ */
 public interface CategoryService {
 
-	
-//	create
+	/**
+	 * @param categoryDto
+	 * @return
+	 */
 	public CategoryDto createCategory(CategoryDto categoryDto);
-//	update
+
+	/**
+	 * @param categoryDto
+	 * @param CategoryId
+	 * @return
+	 */
 	public CategoryDto updateCategory(CategoryDto categoryDto, Integer CategoryId);
-//	delete
+
+	/**
+	 * @param categoryId
+	 */
 	public void deleteCategory(Integer categoryId);
-//	get
+
+	/**
+	 * @param categoryId
+	 * @return
+	 */
 	public CategoryDto getCategoryById(Integer categoryId);
-//	getAll
+
+	/**
+	 * @return
+	 */
 	public List<CategoryDto> getAllCategories();
 }

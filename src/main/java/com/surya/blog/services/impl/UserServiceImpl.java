@@ -13,6 +13,10 @@ import com.surya.blog.payloads.UserDto;
 import com.surya.blog.repositories.UserRepo;
 import com.surya.blog.services.UserService;
 
+/**
+ * @author surya
+ *
+ */
 @Service
 public class UserServiceImpl implements UserService {
 

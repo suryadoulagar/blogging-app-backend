@@ -20,6 +20,10 @@ import com.surya.blog.payloads.ResponseMessage;
 import com.surya.blog.payloads.UserDto;
 import com.surya.blog.services.UserService;
 
+/**
+ * @author surya
+ *
+ */
 @RestController
 @RequestMapping("/api/users")
 public class UserController {

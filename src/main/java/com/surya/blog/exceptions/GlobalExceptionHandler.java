@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.surya.blog.payloads.ResponseMessage;
 
+/**
+ * @author surya
+ *
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 

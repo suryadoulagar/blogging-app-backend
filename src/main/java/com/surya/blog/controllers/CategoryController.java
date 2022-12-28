@@ -20,6 +20,10 @@ import com.surya.blog.payloads.CategoryDto;
 import com.surya.blog.payloads.ResponseMessage;
 import com.surya.blog.services.CategoryService;
 
+/**
+ * @author surya
+ *
+ */
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
@@ -27,7 +31,6 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
-	// create
 	@PostMapping("/")
 	public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto) {
 		CategoryDto createCategory = this.categoryService.createCategory(categoryDto);
@@ -35,7 +38,6 @@ public class CategoryController {
 		return new ResponseEntity<CategoryDto>(createCategory, HttpStatus.CREATED);
 	}
 
-	// update
 	@PutMapping("/{categoryId}")
 	public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto,
 			@PathVariable Integer categoryId) {
@@ -45,7 +47,6 @@ public class CategoryController {
 
 	}
 
-	// delete
 	@DeleteMapping("/{categoryId}")
 	public ResponseEntity<ResponseMessage> deleteCategory(@PathVariable Integer categoryId) {
 
@@ -54,21 +55,19 @@ public class CategoryController {
 				HttpStatus.OK);
 	}
 
-	// get by id
 	@GetMapping("/{categoryId}")
 	public ResponseEntity<CategoryDto> getCategoryById(@PathVariable Integer categoryId) {
 
 		CategoryDto categoryDto = this.categoryService.getCategoryById(categoryId);
 		return new ResponseEntity<CategoryDto>(categoryDto, HttpStatus.OK);
 	}
-	
-	// get all	
+
 	@GetMapping("/")
 	public ResponseEntity<List<CategoryDto>> getAllCategories() {
-		
+
 		List<CategoryDto> allCategories = this.categoryService.getAllCategories();
-		
+
 		return ResponseEntity.ok(allCategories);
 	}
-		
+
 }

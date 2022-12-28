@@ -4,6 +4,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.surya.blog.entities.User;
 
-public interface UserRepo extends JpaRepository<User, Integer>{
+/**
+ * @author surya
+ *
+ */
+public interface UserRepo extends JpaRepository<User, Integer> {
 
 }

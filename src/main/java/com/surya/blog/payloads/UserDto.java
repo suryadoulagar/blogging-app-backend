@@ -10,6 +10,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * @author surya
+ *
+ */
 @SuppressWarnings("deprecation")
 @NoArgsConstructor
 @Setter
@@ -19,7 +23,7 @@ public class UserDto {
 	private int id;
 
 	@NotEmpty(message = "name can not be empty")
-	@Size(min= 4, message = "username should be min of 4 characters")
+	@Size(min = 4, message = "username should be min of 4 characters")
 	private String name;
 
 	@NotEmpty
@@ -28,7 +32,7 @@ public class UserDto {
 
 //	Minimum eight characters, at least one letter and one number:
 	@NotEmpty
-	@Size(min =8, message = "password must be Minimum eight characters, at least one letter and one number")
+	@Size(min = 8, message = "password must be Minimum eight characters, at least one letter and one number")
 	@Pattern(regexp = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$")
 	private String password;
 

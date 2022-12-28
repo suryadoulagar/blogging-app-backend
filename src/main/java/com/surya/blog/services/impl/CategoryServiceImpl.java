@@ -13,6 +13,10 @@ import com.surya.blog.payloads.CategoryDto;
 import com.surya.blog.repositories.CategoryRepo;
 import com.surya.blog.services.CategoryService;
 
+/**
+ * @author surya
+ *
+ */
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
@@ -51,7 +55,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 		Category category = this.categoryRepo.findById(categoryId)
 				.orElseThrow(() -> new ResourceNotFoundException("category", "Category id", categoryId));
-		
+
 		this.categoryRepo.delete(category);
 	}
 
@@ -65,11 +69,12 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public List<CategoryDto> getAllCategories() {
-		
+
 		List<Category> categories = this.categoryRepo.findAll();
-		
-		List<CategoryDto> categoriesDtos = categories.stream().map((category) -> this.modelMapper.map(category, CategoryDto.class)).collect(Collectors.toList());
-		
+
+		List<CategoryDto> categoriesDtos = categories.stream()
+				.map((category) -> this.modelMapper.map(category, CategoryDto.class)).collect(Collectors.toList());
+
 		return categoriesDtos;
 	}
 
