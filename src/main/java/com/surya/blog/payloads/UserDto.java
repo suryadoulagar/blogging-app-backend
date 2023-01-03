@@ -4,8 +4,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.Email;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -20,7 +18,7 @@ import lombok.Setter;
 @Getter
 public class UserDto {
 
-	private int id;
+	private int userId;
 
 	@NotEmpty(message = "name can not be empty")
 	@Size(min = 4, message = "username should be min of 4 characters")

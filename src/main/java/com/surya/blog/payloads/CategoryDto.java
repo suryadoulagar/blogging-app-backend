@@ -1,7 +1,6 @@
 package com.surya.blog.payloads;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import lombok.Getter;
