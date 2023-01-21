@@ -1,6 +1,5 @@
 package com.surya.blog.services.impl;
 
-import java.awt.print.Pageable;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +15,7 @@ import com.surya.blog.entities.Post;
 import com.surya.blog.entities.User;
 import com.surya.blog.exceptions.ResourceNotFoundException;
 import com.surya.blog.payloads.PostDto;
+import com.surya.blog.payloads.PostResponse;
 import com.surya.blog.repositories.CategoryRepo;
 import com.surya.blog.repositories.PostsRepo;
 import com.surya.blog.repositories.UserRepo;
@@ -90,7 +90,7 @@ public class PostServiceImpl implements PostService {
 	}
 
 	@Override
-	public List<PostDto> getAllPosts(Integer pageNumber, Integer pageSize) {
+	public PostResponse getAllPosts(Integer pageNumber, Integer pageSize) {
 
 //		Pageable p = PageRequest.of(pageNumber, pageSize);
 		
@@ -102,8 +102,17 @@ public class PostServiceImpl implements PostService {
 
 		List<PostDto> postsDtos = allPosts.stream().map((post) -> this.modelMapper.map(post, PostDto.class))
 				.collect(Collectors.toList());
-
-		return postsDtos;
+		
+		PostResponse postResponse = new PostResponse();
+		
+		postResponse.setContent(postsDtos);
+		postResponse.setPageNumber(pagePost.getNumber());
+		postResponse.setPageSize(pagePost.getSize());
+		postResponse.setTotalElements(pagePost.getTotalElements());
+		postResponse.setTotalPages(pagePost.getTotalPages());
+		postResponse.setLastPage(pagePost.isLast());
+		
+		return postResponse;
 	}
 
 	@Override
